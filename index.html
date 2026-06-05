@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Click Retry Test</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            padding: 30px;
+        }
+
+        #modal {
+            display: none;
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-top: 20px;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Click Retry Playground</h1>
+
+<button id="openModalBtn">Open Modal</button>
+
+<div id="modal">
+    <h2>Modal Title</h2>
+
+    <label>Name</label>
+    <input placeholder="Name">
+
+    <br><br>
+
+    <button>Save</button>
+</div>
+
+<script>
+
+let firstClickIgnored = true;
+
+document.getElementById("openModalBtn").addEventListener("click", function() {
+
+    if(firstClickIgnored){
+        firstClickIgnored = false;
+
+        console.log("FIRST CLICK IGNORED");
+
+        return;
+    }
+
+    document.getElementById("modal").style.display = "block";
+
+    console.log("MODAL OPENED");
+});
+
+</script>
+
+</body>
+</html>
