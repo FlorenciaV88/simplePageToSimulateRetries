@@ -2,55 +2,21 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Click Retry Playground</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 30px;
-        }
-        #modal {
-            border: 1px solid #ccc;
-            padding: 20px;
-            margin-top: 20px;
-            width: 300px;
-            background-color: #f9f9f9;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click Retry Test Playground</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h1>Click Retry Playground</h1>
+<div class="container">
+    <h1>Click Retry Playground</h1>
 
-<button id="openModalBtn">Open Modal</button>
+    <button id="openModalBtn">Open Modal</button>
 
-<!-- Contenedor dinámico vacío al inicio -->
-<div id="modal-container"></div>
+    <!-- Contenedor dinámico vacío al inicio -->
+    <div id="modal-container"></div>
+</div>
 
-<script>
-let firstClickIgnored = true;
-
-document.getElementById("openModalBtn").addEventListener("click", function() {
-    if (firstClickIgnored) {
-        firstClickIgnored = false;
-        console.log("FIRST CLICK IGNORED (Modal not in DOM yet)");
-        return; // El primer clic se ignora y NO crea el modal, forzando el fallo de testRigor
-    }
-
-    // En el segundo clic, recién inyectamos el modal en el DOM
-    const container = document.getElementById("modal-container");
-    container.innerHTML = `
-        <div id="modal">
-            <h2>Modal Title</h2>
-            <label for="nameInput">Name</label>
-            <input id="nameInput" placeholder="Name">
-            <br><br>
-            <button>Save</button>
-        </div>
-    `;
-
-    console.log("MODAL OPENED AND INJECTED INTO DOM");
-});
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
